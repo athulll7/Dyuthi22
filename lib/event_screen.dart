@@ -1,6 +1,6 @@
 import 'package:dyuthi22/event_offstage_list.dart';
 import 'package:dyuthi22/event_onstage_list_day1.dart';
-import 'package:dyuthi22/score_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:dyuthi22/event_onstage_list_day2.dart';
 
@@ -17,7 +17,7 @@ class _EventScreenState extends State<EventScreen>
 
   @override
   void initState() {
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
     super.initState();
   }
 
@@ -31,7 +31,6 @@ class _EventScreenState extends State<EventScreen>
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
-            Tab(text: "Off Stage"),
             Tab(text: "On Stage Day 1"),
             Tab(text: "On Stage Day 2")
           ],
@@ -58,11 +57,9 @@ class _EventScreenState extends State<EventScreen>
           ),
           Divider(),
           Expanded(
-            child: TabBarView(controller: _tabController, children: [
-              EventOffstageList(),
-              EventOnstageList1(),
-              EventOnstageList2()
-            ]),
+            child: TabBarView(
+                controller: _tabController,
+                children: [EventOnstageList1(), EventOnstageList2()]),
           )
         ],
       ),

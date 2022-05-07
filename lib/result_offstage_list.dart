@@ -1,53 +1,91 @@
 import 'package:dyuthi22/result_display.dart';
 import 'package:dyuthi22/results.dart';
+import 'package:dyuthi22/results_model.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 class ResultOffstageList extends StatelessWidget {
-  const ResultOffstageList({Key? key}) : super(key: key);
+  ResultOffstageList({Key? key}) : super(key: key);
+
+  Future<List<ResultModel>> resultFuture = getResult();
+
+  static Future<List<ResultModel>> getResult() async {
+    const url =
+        "https://script.google.com/macros/s/AKfycby7GisQwH3qV4R5nA1Sec_bh8QlAPA-PpVwWLoP5SU4iB8iaH7omZ_lctnYxeeo1U7M2g/exec";
+    final response = await http.get(Uri.parse(url));
+    final body = convert.json.decode(response.body);
+    return body.map<ResultModel>(ResultModel.fromJson).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: (ctx, index) {
-        Result result;
-        result = Result(
-            event: "event $index",
-            name1: "name $index",
-            department1: "department $index",
-            name2: "name $index",
-            department2: "department $index",
-            name3: "name $index",
-            department3: "department $index");
-        return Row(
-          children: [
-            Expanded(
-              child: TextButton(
-                  style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.black),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (ctx) => ResultDisplay(
-                              event: result.event,
-                              name1: result.name1,
-                              department1: result.department1,
-                              name2: result.name2,
-                              department2: result.department2,
-                              name3: result.name3,
-                              department3: result.department3,
-                            )));
-                  },
-                  child: Text("Event $index")),
-            ),
-          ],
-        );
-      },
-      separatorBuilder: (ctx, index) {
-        return Divider(height: 3);
-      },
-      itemCount: 10,
+    return Scaffold(
+      body: Center(
+        child: FutureBuilder<List<ResultModel>>(
+          future: resultFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting)
+              return const CircularProgressIndicator();
+            if (snapshot.hasData) {
+              final results = snapshot.data!;
+
+              return buildResult(results);
+            } else {
+              return const Text("no data");
+            }
+          },
+        ),
+      ),
     );
   }
+
+  Widget buildResult(List<ResultModel> results) => ListView.separated(
+        itemBuilder: (ctx, index) {
+          Result result;
+          result = Result(
+              event: "event $index",
+              name1: "name $index",
+              point1: "point $index",
+              department1: "department $index",
+              name2: "name $index",
+              point2: "point $index",
+              department2: "department $index",
+              name3: "name $index",
+              department3: "department $index",
+              point3: "point $index");
+          return Row(
+            children: [
+              Expanded(
+                child: TextButton(
+                    style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.black),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white)),
+                    onPressed: () {
+                      Navigator.of(ctx).push(MaterialPageRoute(
+                          builder: (ctx) => ResultDisplay(
+                                event: results[index].event,
+                                name1: results[index].first_name,
+                                department1: results[index].first_dept,
+                                point1: results[index].first_point,
+                                name2: results[index].sec_name,
+                                department2: results[index].sec_dept,
+                                point2: results[index].sec_point,
+                                name3: results[index].third_name,
+                                department3: results[index].third_dept,
+                                point3: results[index].third_point,
+                              )));
+                    },
+                    child: Text(results[index].event)),
+              ),
+            ],
+          );
+        },
+        separatorBuilder: (ctx, index) {
+          return Divider(height: 3);
+        },
+        itemCount: results.length,
+      );
 }

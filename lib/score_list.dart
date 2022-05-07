@@ -10,7 +10,7 @@ class ScoreList extends StatelessWidget {
 
   static Future<List<ScoreModel>> getScore() async {
     const url =
-        "https://script.google.com/macros/s/AKfycbwQZVGBamfV0-h23-6M97_Ti6N--hnU3J4vWvqLZ_djN7VEC7cg7smhjzUItKrXdVNi/exec";
+        "https://script.google.com/macros/s/AKfycbw4RFv_XbNZ_DoPuqKpE5Z2-8N5NhFLsqRPlWTKvI25RFvm6_ThsgOFYzCT5Y7njEOk/exec";
     final response = await http.get(Uri.parse(url));
     final body = convert.json.decode(response.body);
     return body.map<ScoreModel>(ScoreModel.fromJson).toList();
@@ -46,7 +46,7 @@ class ScoreList extends StatelessWidget {
               Text(scores[index].department),
               Padding(
                   padding: const EdgeInsets.fromLTRB(80, 0, 0, 0),
-                  child: Text(scores[index].points)),
+                  child: Text(scores[index].points.toString())),
             ],
           );
         },

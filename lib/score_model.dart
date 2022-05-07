@@ -1,6 +1,8 @@
+import 'dart:ffi';
+
 class ScoreModel {
   final String department;
-  final String points;
+  final int points;
 
   const ScoreModel({required this.department, required this.points});
 

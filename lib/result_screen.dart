@@ -16,28 +16,10 @@ class _ResultScreenState extends State<ResultScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabResultController;
 
-  List<ResultModel> results = <ResultModel>[];
-  getResultFromSheet() async {
-    var raw = await http.get(Uri.parse(
-        "https://script.google.com/macros/s/AKfycbxNqYtzUn-sHGH5FebrAziKgujYt6IPVevokQJLOt_fYjdCx5OWxUhMleZUCL5S3xcb/exec"));
-
-    var jsonResult = convert.jsonDecode(raw.body);
-
-    jsonResult.forEach((element) {
-      ResultModel resultModel = new ResultModel();
-      resultModel.event = element['event'];
-      resultModel.position = element['position'];
-      resultModel.name = element['name'];
-      resultModel.department = element['department'];
-
-      results.add(resultModel);
-    });
-  }
-
   @override
   void initState() {
     _tabResultController = TabController(length: 2, vsync: this);
-    getResultFromSheet();
+
     super.initState();
   }
 
