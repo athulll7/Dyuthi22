@@ -3,8 +3,6 @@ import 'package:dyuthi22/event_onstage_list_day1.dart';
 import 'package:dyuthi22/score_model.dart';
 import 'package:flutter/material.dart';
 import 'package:dyuthi22/event_onstage_list_day2.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 
 class EventScreen extends StatefulWidget {
   const EventScreen({Key? key}) : super(key: key);
@@ -15,31 +13,10 @@ class EventScreen extends StatefulWidget {
 
 class _EventScreenState extends State<EventScreen>
     with SingleTickerProviderStateMixin {
-  List<ScoreModel> score = <ScoreModel>[];
-
-  getScoreFromSheet() async {
-    var raw = await http.get(Uri.parse(
-        "https://script.google.com/macros/s/AKfycbwQZVGBamfV0-h23-6M97_Ti6N--hnU3J4vWvqLZ_djN7VEC7cg7smhjzUItKrXdVNi/exec"));
-
-    var jsonScore = convert.jsonDecode(raw.body);
-    print('this is Score $jsonScore');
-    score = jsonScore.map((json) => ScoreModel.fromJson(json));
-
-    jsonScore.forEach((Element) {
-      ScoreModel scoreModel = new ScoreModel();
-      scoreModel.department = Element['department'];
-      scoreModel.points = Element['points'];
-
-      score.add(scoreModel);
-    });
-  }
-
   late TabController _tabController;
 
   @override
   void initState() {
-    getScoreFromSheet();
-    super.initState();
     _tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
@@ -80,15 +57,13 @@ class _EventScreenState extends State<EventScreen>
             height: 10,
           ),
           Divider(),
-          Text(score.length.toString()),
           Expanded(
             child: TabBarView(controller: _tabController, children: [
               EventOffstageList(),
               EventOnstageList1(),
               EventOnstageList2()
             ]),
-          ),
-          Text("data"),
+          )
         ],
       ),
     );

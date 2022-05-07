@@ -1,8 +1,6 @@
 import 'package:dyuthi22/score_list.dart';
 import 'package:dyuthi22/score_model.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 
 class ScoreScreen extends StatefulWidget {
   const ScoreScreen({Key? key}) : super(key: key);
@@ -12,32 +10,6 @@ class ScoreScreen extends StatefulWidget {
 }
 
 class _ScoreScreenState extends State<ScoreScreen> {
-  List<ScoreModel> score = <ScoreModel>[];
-
-  getScoreFromSheet() async {
-    var raw = await http.get(Uri.parse(
-        "https://script.google.com/macros/s/AKfycbwQZVGBamfV0-h23-6M97_Ti6N--hnU3J4vWvqLZ_djN7VEC7cg7smhjzUItKrXdVNi/exec"));
-
-    var jsonScore = convert.jsonDecode(raw.body);
-    print('this is Score $jsonScore');
-    score = jsonScore.map((json) => ScoreModel.fromJson(json));
-
-    jsonScore.forEach((Element) {
-      ScoreModel scoreModel = new ScoreModel();
-      scoreModel.department = Element['department'];
-      scoreModel.points = Element['points'];
-
-      score.add(scoreModel);
-    });
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    getScoreFromSheet();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +39,6 @@ class _ScoreScreenState extends State<ScoreScreen> {
             ),
             Divider(),
             Expanded(child: ScoreList()),
-            Text(score.length.toString())
           ],
         ),
       ),
