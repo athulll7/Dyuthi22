@@ -29,9 +29,19 @@ class _ScoreScreenState extends State<ScoreScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 80, 0),
-                  child: Text("Department"),
+                  child: Text("Department",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.bold)),
                 ),
-                Text("Score")
+                Text(
+                  "Score",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold),
+                )
               ],
             ),
             SizedBox(

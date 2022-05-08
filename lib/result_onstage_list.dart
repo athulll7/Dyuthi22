@@ -78,7 +78,8 @@ class ResultOnstageList extends StatelessWidget {
                                 point3: results[index].third_point,
                               )));
                     },
-                    child: Text(results[index].event)),
+                    child: Text(results[index].event,
+                        style: TextStyle(fontSize: 16))),
               ),
             ],
           );

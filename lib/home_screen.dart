@@ -17,10 +17,13 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SafeArea(
       child: Column(
         children: [
-          Image(
-            height: 200,
-            image: AssetImage('assets/images/dythi logo.png'),
-            width: 400,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+            child: Image(
+              height: 200,
+              image: AssetImage('assets/images/dythi logo.png'),
+              width: 400,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(5, 15, 5, 4),
@@ -28,22 +31,15 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Expanded(
                   child: SizedBox(
-                    height: 120,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            alignment: Alignment.bottomLeft,
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(23.0),
-                            ),
-                            textStyle: const TextStyle(
-                              fontSize: 24,
-                            )),
+                    height: 100,
+                    width: 600,
+                    child: IconButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (ctx) => EventScreen()));
                         },
-                        child: Text("Events")),
+                        icon: Image.asset(
+                            "assets/images/WhatsApp Image 2022-05-08 at 12.26.33 AM.jpeg")),
                   ),
                 )
               ],
@@ -56,21 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: SizedBox(
                     height: 120,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            alignment: Alignment.bottomLeft,
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(23.0),
-                            ),
-                            textStyle: const TextStyle(
-                              fontSize: 24,
-                            )),
+                    child: IconButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (ctx) => ResultScreen()));
                         },
-                        child: Text("Results")),
+                        icon: Image.asset(
+                            "assets/images/WhatsApp Image 2022-05-08 at 1.01.58 AM.jpeg")),
                   ),
                 )
               ],
@@ -83,38 +71,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: SizedBox(
                     height: 120,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            alignment: Alignment.bottomLeft,
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(23.0),
-                            ),
-                            textStyle: const TextStyle(
-                              fontSize: 24,
-                            )),
+                    child: IconButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (ctx) => ScoreScreen()));
                         },
-                        child: Text("Score")),
+                        icon: Image.asset(
+                            "assets/images/WhatsApp Image 2022-05-08 at 12.25.30 AM.jpeg")),
                   ),
                 )
               ],
             ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (ctx) => ScoreScreen()));
-                    },
-                    icon: Image.asset("assets/images/mohini.jpg")),
-              )
-            ],
-          )
         ],
       ),
     ));

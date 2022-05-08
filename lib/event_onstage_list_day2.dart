@@ -41,13 +41,19 @@ class EventOnstageList2 extends StatelessWidget {
   Widget buildScore(List<EventModel> eventss) => ListView.separated(
         itemBuilder: (ctx, index) {
           return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(eventss[index].events),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 0, 40, 0),
-                  child: Text(eventss[index].time)),
-              Text(eventss[index].stage),
+                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                child:
+                    Text(eventss[index].events, style: TextStyle(fontSize: 16)),
+              ),
+              Text(eventss[index].time, style: TextStyle(fontSize: 16)),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child:
+                    Text(eventss[index].stage, style: TextStyle(fontSize: 16)),
+              ),
             ],
           );
         },

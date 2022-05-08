@@ -45,51 +45,106 @@ class _ResultDisplayState extends State<ResultDisplay> {
         children: [
           Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Position"),
-              Text("Name"),
-              Text("Department"),
-              Text("Points")
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Text("Position",
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                child: Text("Name",
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold)),
+              ),
+              Text("Department",
+                  style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold)),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+                child: Text("Points",
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold)),
+              )
             ],
           ),
           Divider(),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 30, 0),
-                child: Text("1st"),
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Text("1st", style: TextStyle(fontSize: 16)),
               ),
-              Text("${widget.name1}"),
-              Text("${widget.department1}"),
-              Text("${widget.point1}")
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                child: Text("${widget.name1}", style: TextStyle(fontSize: 16)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                child: Text("${widget.department1}",
+                    style: TextStyle(fontSize: 16)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                child: Text("${widget.point1}", style: TextStyle(fontSize: 16)),
+              )
             ],
           ),
           Divider(),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 30, 0),
-                child: Text("2nd"),
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Text("2nd", style: TextStyle(fontSize: 16)),
               ),
-              Text("${widget.name2}"),
-              Text("${widget.department2}"),
-              Text("${widget.point2}"),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                child: Text("${widget.name2}", style: TextStyle(fontSize: 16)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                child: Text("${widget.department2}",
+                    style: TextStyle(fontSize: 16)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                child: Text("${widget.point2}", style: TextStyle(fontSize: 16)),
+              ),
             ],
           ),
           Divider(),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 30, 0),
-                child: Text("3rd"),
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Text("3rd", style: TextStyle(fontSize: 16)),
               ),
-              Text("${widget.name3}"),
-              Text("${widget.department3}"),
-              Text("${widget.point3}"),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                child: Text("${widget.name3}", style: TextStyle(fontSize: 16)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                child: Text("${widget.department3}",
+                    style: TextStyle(fontSize: 16)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                child: Text("${widget.point3}", style: TextStyle(fontSize: 16)),
+              ),
             ],
           )
         ],

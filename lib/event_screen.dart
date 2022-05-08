@@ -1,4 +1,3 @@
-import 'package:dyuthi22/event_offstage_list.dart';
 import 'package:dyuthi22/event_onstage_list_day1.dart';
 
 import 'package:flutter/material.dart';
@@ -44,12 +43,24 @@ class _EventScreenState extends State<EventScreen>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text("Events"),
+              Text("Events",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold)),
               Padding(
-                padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                child: Text("Time"),
+                padding: const EdgeInsets.fromLTRB(65, 0, 75, 0),
+                child: Text("Time",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold)),
               ),
-              Text("Stage"),
+              Text("Stage",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold)),
             ],
           ),
           SizedBox(

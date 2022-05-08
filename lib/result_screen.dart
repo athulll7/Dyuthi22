@@ -43,7 +43,13 @@ class _ResultScreenState extends State<ResultScreen>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text("Events"),
+              Text(
+                "Events",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Colors.black54),
+              ),
             ],
           ),
           SizedBox(

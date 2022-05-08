@@ -43,10 +43,11 @@ class ScoreList extends StatelessWidget {
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(scores[index].department),
+              Text(scores[index].department, style: TextStyle(fontSize: 18)),
               Padding(
                   padding: const EdgeInsets.fromLTRB(80, 0, 0, 0),
-                  child: Text(scores[index].points.toString())),
+                  child: Text(scores[index].points.toString(),
+                      style: TextStyle(fontSize: 18))),
             ],
           );
         },
