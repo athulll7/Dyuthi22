@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     icon: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      child: Image.asset("assets/images/button_results.jpeg"),
+                      child: Image.asset("assets/images/button_result_22.jpeg"),
                     )),
               ),
             )

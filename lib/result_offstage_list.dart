@@ -12,7 +12,7 @@ class ResultOffstageList extends StatelessWidget {
 
   static Future<List<ResultModel>> getResult() async {
     const url =
-        "https://script.google.com/macros/s/AKfycby7GisQwH3qV4R5nA1Sec_bh8QlAPA-PpVwWLoP5SU4iB8iaH7omZ_lctnYxeeo1U7M2g/exec";
+        "https://script.google.com/macros/s/AKfycbxmJz7F-kAZGeHP742yEsHq3F3-1OsmWKtBaV38lgefzQldmTbHUTiAmvWsfHf6tWJcRw/exec";
     final response = await http.get(Uri.parse(url));
     final body = convert.json.decode(response.body);
     return body.map<ResultModel>(ResultModel.fromJson).toList();
