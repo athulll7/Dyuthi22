@@ -18,70 +18,63 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 70, 0, 0),
             child: Image(
-              height: 200,
+              height: 250,
               image: AssetImage('assets/images/dythi logo.png'),
-              width: 400,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(5, 15, 5, 4),
-            child: Row(
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    height: 100,
-                    width: 600,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (ctx) => EventScreen()));
-                        },
-                        icon: Image.asset(
-                            "assets/images/WhatsApp Image 2022-05-08 at 12.26.33 AM.jpeg")),
-                  ),
-                )
-              ],
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: SizedBox(
+                  height: 120,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (ctx) => EventScreen()));
+                      },
+                      icon: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset("assets/images/button_events.jpeg"),
+                      )),
+                ),
+              )
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(5, 4, 5, 4),
-            child: Row(
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    height: 120,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (ctx) => ResultScreen()));
-                        },
-                        icon: Image.asset(
-                            "assets/images/WhatsApp Image 2022-05-08 at 1.01.58 AM.jpeg")),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(5, 4, 5, 15),
-            child: Row(
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    height: 120,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (ctx) => ScoreScreen()));
-                        },
-                        icon: Image.asset(
-                            "assets/images/WhatsApp Image 2022-05-08 at 12.25.30 AM.jpeg")),
-                  ),
-                )
-              ],
-            ),
+          Row(children: [
+            Expanded(
+              child: SizedBox(
+                height: 120,
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (ctx) => ResultScreen()));
+                    },
+                    icon: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset("assets/images/button_results.jpeg"),
+                    )),
+              ),
+            )
+          ]),
+          Row(
+            children: [
+              Expanded(
+                child: SizedBox(
+                  height: 120,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (ctx) => ScoreScreen()));
+                      },
+                      icon: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset("assets/images/button_score.jpeg"),
+                      )),
+                ),
+              )
+            ],
           ),
         ],
       ),
