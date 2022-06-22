@@ -43,109 +43,33 @@ class _ResultDisplayState extends State<ResultDisplay> {
       ),
       body: Column(
         children: [
-          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                child: Text("Position",
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.black54,
-                        fontWeight: FontWeight.bold)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                child: Text("Name",
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.black54,
-                        fontWeight: FontWeight.bold)),
-              ),
-              Text("Department",
-                  style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.bold)),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
-                child: Text("Points",
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.black54,
-                        fontWeight: FontWeight.bold)),
-              )
-            ],
-          ),
-          Divider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                child: Text("1st", style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                child: Text("${widget.name1}", style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                child: Text("${widget.department1}",
-                    style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-                child: Text("${widget.point1}", style: TextStyle(fontSize: 16)),
-              )
-            ],
-          ),
-          Divider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                child: Text("2nd", style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                child: Text("${widget.name2}", style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                child: Text("${widget.department2}",
-                    style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-                child: Text("${widget.point2}", style: TextStyle(fontSize: 16)),
-              ),
-            ],
-          ),
-          Divider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                child: Text("3rd", style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                child: Text("${widget.name3}", style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                child: Text("${widget.department3}",
-                    style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-                child: Text("${widget.point3}", style: TextStyle(fontSize: 16)),
-              ),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: DataTable(columns: [
+              DataColumn(label: Text("Position")),
+              DataColumn(label: Text("Name")),
+              DataColumn(label: Text("Department")),
+              DataColumn(label: Text("Points")),
+            ], rows: <DataRow>[
+              DataRow(cells: <DataCell>[
+                DataCell(Text("1st")),
+                DataCell(Text("${widget.name1}")),
+                DataCell(Text("${widget.department1}")),
+                DataCell(Text("${widget.point1}"))
+              ]),
+              DataRow(cells: <DataCell>[
+                DataCell(Text("2nd")),
+                DataCell(Text("${widget.name2}")),
+                DataCell(Text("${widget.department2}")),
+                DataCell(Text("${widget.point2}"))
+              ]),
+              DataRow(cells: <DataCell>[
+                DataCell(Text("3rd")),
+                DataCell(Text("${widget.name3}")),
+                DataCell(Text("${widget.department3}")),
+                DataCell(Text("${widget.point3}"))
+              ]),
+            ]),
           )
         ],
       ),

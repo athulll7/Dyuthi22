@@ -37,36 +37,6 @@ class _EventScreenState extends State<EventScreen>
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 15,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text("Events",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.bold)),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(65, 0, 75, 0),
-                child: Text("Time",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black54,
-                        fontWeight: FontWeight.bold)),
-              ),
-              Text("Stage",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.bold)),
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Divider(),
           Expanded(
             child: TabBarView(
                 controller: _tabController,

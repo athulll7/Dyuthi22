@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class ScoreModel {
   final String department;
   final int points;

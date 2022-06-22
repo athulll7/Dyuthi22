@@ -28,7 +28,7 @@ class _ScoreScreenState extends State<ScoreScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 80, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
                   child: Text("Department",
                       style: TextStyle(
                           fontSize: 18,

@@ -27,7 +27,7 @@ class ScoreList extends StatelessWidget {
               return const CircularProgressIndicator();
             if (snapshot.hasData) {
               final scores = snapshot.data!;
-
+              scores.sort((a, b) => b.points.compareTo(a.points));
               return buildScore(scores);
             } else {
               return const Text("no data");
@@ -45,7 +45,7 @@ class ScoreList extends StatelessWidget {
             children: [
               Text(scores[index].department, style: TextStyle(fontSize: 18)),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(80, 0, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(70, 0, 0, 0),
                   child: Text(scores[index].points.toString(),
                       style: TextStyle(fontSize: 18))),
             ],

@@ -38,28 +38,46 @@ class EventOnstageList2 extends StatelessWidget {
     );
   }
 
-  Widget buildScore(List<EventModel> eventss) => ListView.separated(
-        itemBuilder: (ctx, index) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                child:
-                    Text(eventss[index].events, style: TextStyle(fontSize: 16)),
-              ),
-              Text(eventss[index].time, style: TextStyle(fontSize: 16)),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                child:
-                    Text(eventss[index].stage, style: TextStyle(fontSize: 16)),
-              ),
-            ],
-          );
-        },
-        separatorBuilder: (ctx, index) {
-          return Divider();
-        },
-        itemCount: eventss.length,
+  Widget buildScore(List<EventModel> eventss) => SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: DataTable(
+          columns: [
+            DataColumn(
+                label: Text("Events",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold))),
+            DataColumn(
+                label: Text("Time",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold))),
+            DataColumn(
+                label: Text("Stage",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold))),
+          ],
+          rows: List.generate(
+            eventss.length,
+            (index) {
+              var eve = eventss[index];
+              return DataRow(cells: [
+                DataCell(
+                  Text(eve.events, style: TextStyle(fontSize: 16)),
+                ),
+                DataCell(
+                  Text(eve.time, style: TextStyle(fontSize: 16)),
+                ),
+                DataCell(
+                  Text(eve.stage, style: TextStyle(fontSize: 16)),
+                ),
+              ]);
+            },
+          ).toList(),
+        ),
       );
 }
